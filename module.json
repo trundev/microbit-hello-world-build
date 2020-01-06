@@ -1,0 +1,11 @@
+{
+  "name": "microbit-hello-world",
+  "version": "1.0.0",
+  "description": "Hello world sample from https://os.mbed.com/teams/microbit/code/microbit-hello-world/.",
+  "license": "MIT",
+  "dependencies": {
+    "microbit": "lancaster-university/microbit#v2.1.1"
+  },
+  "targetDependencies": {},
+  "bin": "."
+}
