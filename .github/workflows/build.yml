@@ -64,6 +64,28 @@ jobs:
     #
     # Publish
     #
+    - name: Copy all intermediate files
+      if: false   # Comment this out to publish all intermediate files
+      run: |
+        generated=$(git ls-files -o -i --exclude='*')
+        dest=../generated
+        mkdir $dest
+        for x in $generated; do
+            # Workaround for spaces in the file-names
+            if test -e $x; then
+              dir=$dest/$(dirname $x)
+              echo "$x => $dir"
+              mkdir -p $dir
+              cp -a $x $dir
+            fi
+          done
+
+    - uses: actions/upload-artifact@v1
+      continue-on-error: true
+      with:
+        name: intermediate
+        path: ../generated
+
     - name: Copy result
       run: |
         mkdir -p ../result
