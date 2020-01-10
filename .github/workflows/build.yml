@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      # The name of final image
+      MODULE_NAME: microbit-hello-world
       # The yotta target
       TARGET: 'bbc-microbit-classic-gcc'
       # Link to download the cross-compiller, see:
@@ -89,7 +91,7 @@ jobs:
     - name: Copy result
       run: |
         mkdir -p ../result
-        cp build/${{ env.TARGET }}/microbit-hello-world/microbit-hello-world* ../result
+        cp build/${{ env.TARGET }}/${{ env.MODULE_NAME }}/${{ env.MODULE_NAME }}* ../result
 
     - uses: actions/upload-artifact@v1
       with:
