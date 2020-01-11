@@ -67,7 +67,7 @@ jobs:
     # Publish
     #
     - name: Copy all intermediate files
-      if: false   # Comment this out to publish all intermediate files
+      #if: false   # Comment this out to publish all intermediate files
       run: |
         generated=$(git ls-files -o -i --exclude='*')
         dest=../generated
